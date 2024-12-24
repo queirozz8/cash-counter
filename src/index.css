@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type="number"] {
+  appearance: none;
+  -moz-appearance: textfield; 
+  -webkit-appearance: none;
+}
