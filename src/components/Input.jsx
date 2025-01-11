@@ -8,7 +8,7 @@ export default function Input({ billValue, billName, inputBill, calculateValue }
     if ((e.target.length >= 8) || (!allowedKeys.includes(e.key) && isNaN(e.key))) e.preventDefault()
   };
   
-  function handleChange(e) { calculateValue(e.target.value, billName) };
+  function handleChange(e) { calculateValue(Number(e.target.value), billName) };
 
   return (
     <div className="flex justify-center items-center gap-3">
