@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Input from './components/Input'
 import { Coins } from 'lucide-react';
 
 export default function App() {
   const [result, setResult] = useState(0)
   const [cashCounter, setCashCounter] = useState(0)
-  const [billValues, setBillValues] = useState({
+  const [bills, setBills] = useState({
     nota200: "",
     nota100: "",
     nota50: "",
@@ -19,39 +19,45 @@ export default function App() {
     moeda10: "",
     moeda5: "",
   })
+  const billValues = [200, 100, 50, 20, 10, 5, 2, 1, 0.5, 0.25, 0.10, 0.05]
   
 
   function calculateValue(inputValue, billName) {
-    setBillValues((prevValues) => ({
-      ...prevValues,
-      [billName]: inputValue
-    }))
-
-    setCashCounter(0)
-    for (let value in billValues) {
-      if (billValues[value] !== '') {
-        if (value === 'nota200') { setCashCounter(prev => prev + Number(billValues[value]) * 200); console.log('foi') }
-        else if (value === 'nota100') { setCashCounter(prev => prev + Number(billValues[value]) * 100); console.log('foi') }
-        else if (value === 'nota50') { setCashCounter(prev => prev + Number(billValues[value]) * 50); console.log('foi') }
-        else if (value === 'nota20') { setCashCounter(prev => prev + Number(billValues[value]) * 20); console.log('foi') }
-        else if (value === 'nota10') { setCashCounter(prev => prev + Number(billValues[value]) * 10); console.log('foi') }
-        else if (value === 'nota5') { setCashCounter(prev => prev + Number(billValues[value]) * 5); console.log('foi') }
-        else if (value === 'nota2') { setCashCounter(prev => prev + Number(billValues[value]) * 2); console.log('foi') }
-        else if (value === 'moeda1') { setCashCounter(prev => prev + Number(billValues[value]) * 1); console.log('foi') }
-        else if (value === 'moeda50') { setCashCounter(prev => prev + Number(billValues[value]) * 0.5); console.log('foi') }
-        else if (value === 'moeda25') { setCashCounter(prev => prev + Number(billValues[value]) * 0.25); console.log('foi') }
-        else if (value === 'moeda10') { setCashCounter(prev => prev + Number(billValues[value]) * 0.10); console.log('foi') }
-        else if (value === 'moeda5') { setCashCounter(prev => prev + Number(billValues[value]) * 0.05); console.log('foi') }
-      }
+    if (inputValue === 0) {
+      setBills((prevValues) => ({
+        ...prevValues,
+        [billName]: ''
+      }))
+    } else {
+      setBills((prevValues) => ({
+        ...prevValues,
+        [billName]: inputValue
+      }))
     }
 
+    setCashCounter(0)
+    let billValuesIndex = 0
+    for (let value in bills) {
+      if (billValuesIndex < 11) {
+        setCashCounter(prev => prev + Number(bills[value]) * billValues[billValuesIndex])
+        billValuesIndex++
+        console.log('foi')
+      }
+    }
+    
+    console.log(cashCounter)
     const formattedResult = new Intl.NumberFormat('pt-BR').format(cashCounter.toFixed(2))
     setResult(formattedResult)
   }
-
+  
 
   function handleClear() {
-    for (let value in billValues) billValues[value] = '';
+    for (let value in bills) {
+      setBills(prevValues => ({
+        ...prevValues,
+        [value]: ''
+      }))
+    }
     setResult(0)
   }
 
@@ -63,18 +69,18 @@ export default function App() {
       <br />
 
       <form className='grid grid-cols-2 gap-24 w-[800px] h-[700px] mt-10'>
-        <Input billValue={billValues.nota200} billName="nota200" inputBill="200.00" setResult={setResult} calculateValue={calculateValue} />
-        <Input billValue={billValues.nota100} billName="nota100" inputBill="100.00" setResult={setResult} calculateValue={calculateValue} />
-        <Input billValue={billValues.nota50} billName="nota50" inputBill="50.00" setResult={setResult} calculateValue={calculateValue} />
-        <Input billValue={billValues.nota20} billName="nota20" inputBill="20.00" setResult={setResult} calculateValue={calculateValue} />
-        <Input billValue={billValues.nota10} billName="nota10" inputBill="10.00" setResult={setResult} calculateValue={calculateValue} />
-        <Input billValue={billValues.nota5} billName="nota5"  inputBill="5.00" setResult={setResult} calculateValue={calculateValue} />
-        <Input billValue={billValues.nota2} billName="nota2"  inputBill="2.00" setResult={setResult} calculateValue={calculateValue} />
-        <Input billValue={billValues.moeda1} billName="moeda1" inputBill="1.00" setResult={setResult} calculateValue={calculateValue} />
-        <Input billValue={billValues.moeda50} billName="moeda50" inputBill="0.50" setResult={setResult} calculateValue={calculateValue} />
-        <Input billValue={billValues.moeda25} billName="moeda25" inputBill="0.25" setResult={setResult} calculateValue={calculateValue} />
-        <Input billValue={billValues.moeda10} billName="moeda10" inputBill="0.10" setResult={setResult} calculateValue={calculateValue} />
-        <Input billValue={billValues.moeda5} billName="moeda5" inputBill="0.05" setResult={setResult} calculateValue={calculateValue} />
+        <Input billValue={bills.nota200} billName="nota200" inputBill="200.00" setResult={setResult} calculateValue={calculateValue} />
+        <Input billValue={bills.nota100} billName="nota100" inputBill="100.00" setResult={setResult} calculateValue={calculateValue} />
+        <Input billValue={bills.nota50} billName="nota50" inputBill="50.00" setResult={setResult} calculateValue={calculateValue} />
+        <Input billValue={bills.nota20} billName="nota20" inputBill="20.00" setResult={setResult} calculateValue={calculateValue} />
+        <Input billValue={bills.nota10} billName="nota10" inputBill="10.00" setResult={setResult} calculateValue={calculateValue} />
+        <Input billValue={bills.nota5} billName="nota5"  inputBill="5.00" setResult={setResult} calculateValue={calculateValue} />
+        <Input billValue={bills.nota2} billName="nota2"  inputBill="2.00" setResult={setResult} calculateValue={calculateValue} />
+        <Input billValue={bills.moeda1} billName="moeda1" inputBill="1.00" setResult={setResult} calculateValue={calculateValue} />
+        <Input billValue={bills.moeda50} billName="moeda50" inputBill="0.50" setResult={setResult} calculateValue={calculateValue} />
+        <Input billValue={bills.moeda25} billName="moeda25" inputBill="0.25" setResult={setResult} calculateValue={calculateValue} />
+        <Input billValue={bills.moeda10} billName="moeda10" inputBill="0.10" setResult={setResult} calculateValue={calculateValue} />
+        <Input billValue={bills.moeda5} billName="moeda5" inputBill="0.05" setResult={setResult} calculateValue={calculateValue} />
       </form>
 
       <div className='flex gap-10 mt-44 mb-10'>
