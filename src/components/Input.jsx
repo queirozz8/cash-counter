@@ -22,7 +22,7 @@ export default function Input({ setBills, billValue, billName, inputBill, calcul
     <div className="flex justify-center items-center md:gap-3 w-72 md:w-96">
       <label className="flex justify-center items-center text-sm md:text-xl text-zinc-300" htmlFor={inputBill}>R$ {inputBill.replace('.', ',')}</label>
         <input
-          className="w-36 md:w-auto p-1 md:p-4 text-zinc-300 bg-[#1D2623] border border-[#354942] rounded-xl placeholder:text-sm placeholder:text-zinc-600"
+          className="w-36 md:w-auto p-2 md:p-4 text-zinc-300 bg-[#1D2623] border border-[#354942] rounded-xl placeholder:text-sm placeholder:text-zinc-600"
           type="number"
           onKeyDown={verifyInput}
           onChange={handleChange}
