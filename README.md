@@ -12,6 +12,8 @@
 - Control using the arrows next to the input fields;
 - Support to both computers and mobile devices.
 
+<h4>The goal is to help people who handle large amounts of cash and struggle to keep track of the total.</h4>
+
 ### 
 
 <h2>PT-BR: Um Website que calcula a quantidade de dinheiro em espécie (dinheiro vivo) que você tem (baseado no número de notas e moedas que possui).</h2>
@@ -26,6 +28,8 @@
 - Contador de quantas notas e quantas moedas você possui;
 - Controle pelas setas ao lado do input;
 - Suporte a computadores e celulares.
+
+<h4>O objetivo é ajudar pessoas que possuem muitas quantidades de dinheiro vivo, que acabam se perdendo para contar todo aquele dinheiro.</h4>
 
 🔗 Site: https://cash-counter-rick.vercel.app
 ![image](https://github.com/user-attachments/assets/65fbc404-3893-40f3-a85e-5becbbd13831)
