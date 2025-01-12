@@ -4,7 +4,6 @@ import { Coins } from 'lucide-react';
 
 export default function App() {
   const [result, setResult] = useState(0)
-  const [cashCounter, setCashCounter] = useState(0)
   const [bills, setBills] = useState({
     nota200: "",
     nota100: "",
@@ -20,7 +19,9 @@ export default function App() {
     moeda5: "",
   })
   const billValues = [200, 100, 50, 20, 10, 5, 2, 1, 0.5, 0.25, 0.10, 0.05]
-  
+  const [totalBills, setTotalBills] = useState(0)
+  const [totalCoins, setTotalCoins] = useState(0)
+
 
   function calculateValue(inputValue, billName) {
     if (inputValue === 0) {
@@ -34,28 +35,34 @@ export default function App() {
         [billName]: inputValue
       }))
     }
+  }
 
-    setCashCounter(0)
+  useEffect(() => {
+    let cashCounter = 0
+    let totalBillsCounter = 0, totalCoinsCounter = 0
     let billValuesIndex = 0
-    for (let value in bills) {
-      if (billValuesIndex < 11) {
-        setCashCounter(prev => prev + Number(bills[value]) * billValues[billValuesIndex])
+
+    for (let bill in bills) {
+      if (billValuesIndex < 12) {
+        cashCounter += Number(bills[bill]) * billValues[billValuesIndex]
+        if (bill.startsWith('nota')) totalBillsCounter += Number(bills[bill])
+        else if (bill.startsWith('moeda')) totalCoinsCounter += Number(bills[bill])
         billValuesIndex++
-        console.log('foi')
       }
     }
-    
-    console.log(cashCounter)
+
     const formattedResult = new Intl.NumberFormat('pt-BR').format(cashCounter.toFixed(2))
     setResult(formattedResult)
-  }
+    setTotalBills(totalBillsCounter)
+    setTotalCoins(totalCoinsCounter)
+  }, [bills])
   
 
   function handleClear() {
-    for (let value in bills) {
+    for (let bill in bills) {
       setBills(prevValues => ({
         ...prevValues,
-        [value]: ''
+        [bill]: ''
       }))
     }
     setResult(0)
@@ -69,24 +76,48 @@ export default function App() {
       <br />
 
       <form className='grid grid-cols-2 gap-24 w-[800px] h-[700px] mt-10'>
-        <Input billValue={bills.nota200} billName="nota200" inputBill="200.00" setResult={setResult} calculateValue={calculateValue} />
-        <Input billValue={bills.nota100} billName="nota100" inputBill="100.00" setResult={setResult} calculateValue={calculateValue} />
-        <Input billValue={bills.nota50} billName="nota50" inputBill="50.00" setResult={setResult} calculateValue={calculateValue} />
-        <Input billValue={bills.nota20} billName="nota20" inputBill="20.00" setResult={setResult} calculateValue={calculateValue} />
-        <Input billValue={bills.nota10} billName="nota10" inputBill="10.00" setResult={setResult} calculateValue={calculateValue} />
-        <Input billValue={bills.nota5} billName="nota5"  inputBill="5.00" setResult={setResult} calculateValue={calculateValue} />
-        <Input billValue={bills.nota2} billName="nota2"  inputBill="2.00" setResult={setResult} calculateValue={calculateValue} />
-        <Input billValue={bills.moeda1} billName="moeda1" inputBill="1.00" setResult={setResult} calculateValue={calculateValue} />
-        <Input billValue={bills.moeda50} billName="moeda50" inputBill="0.50" setResult={setResult} calculateValue={calculateValue} />
-        <Input billValue={bills.moeda25} billName="moeda25" inputBill="0.25" setResult={setResult} calculateValue={calculateValue} />
-        <Input billValue={bills.moeda10} billName="moeda10" inputBill="0.10" setResult={setResult} calculateValue={calculateValue} />
-        <Input billValue={bills.moeda5} billName="moeda5" inputBill="0.05" setResult={setResult} calculateValue={calculateValue} />
+        <Input setBills={setBills} billValue={bills.nota200} billName="nota200" inputBill="200.00" setResult={setResult} calculateValue={calculateValue} />
+        <Input setBills={setBills} billValue={bills.nota100} billName="nota100" inputBill="100.00" setResult={setResult} calculateValue={calculateValue} />
+        <Input setBills={setBills} billValue={bills.nota50} billName="nota50" inputBill="50.00" setResult={setResult} calculateValue={calculateValue} />
+        <Input setBills={setBills} billValue={bills.nota20} billName="nota20" inputBill="20.00" setResult={setResult} calculateValue={calculateValue} />
+        <Input setBills={setBills} billValue={bills.nota10} billName="nota10" inputBill="10.00" setResult={setResult} calculateValue={calculateValue} />
+        <Input setBills={setBills} billValue={bills.nota5} billName="nota5"  inputBill="5.00" setResult={setResult} calculateValue={calculateValue} />
+        <Input setBills={setBills} billValue={bills.nota2} billName="nota2"  inputBill="2.00" setResult={setResult} calculateValue={calculateValue} />
+        <Input setBills={setBills} billValue={bills.moeda1} billName="moeda1" inputBill="1.00" setResult={setResult} calculateValue={calculateValue} />
+        <Input setBills={setBills} billValue={bills.moeda50} billName="moeda50" inputBill="0.50" setResult={setResult} calculateValue={calculateValue} />
+        <Input setBills={setBills} billValue={bills.moeda25} billName="moeda25" inputBill="0.25" setResult={setResult} calculateValue={calculateValue} />
+        <Input setBills={setBills} billValue={bills.moeda10} billName="moeda10" inputBill="0.10" setResult={setResult} calculateValue={calculateValue} />
+        <Input setBills={setBills} billValue={bills.moeda5} billName="moeda5" inputBill="0.05" setResult={setResult} calculateValue={calculateValue} />
       </form>
 
       <div className='flex gap-10 mt-44 mb-10'>
         <button className='p-4 text-zinc-300 bg-red-800 border border-red-600 rounded-xl' onClick={handleClear}>Limpar</button>
         <p className='flex justify-center items-center relative left-8 text-zinc-300'>R$</p>
         <input className='w-96 h-14 p-2 text-zinc-300 border border-[#354942] bg-[#1D2623] rounded-xl placeholder:text-zinc-600' value={result} placeholder='Resultado' readOnly id="input" />
+      </div>
+
+      <div className='flex gap-52'>
+        <div className='flex flex-col justify-center gap-3 p-10'>
+          <label className='text-xl text-zinc-300' htmlFor="bills">Número total de notas:</label>
+          <input 
+          className='flex justify-center items-center p-3 border border-[#354942] rounded-xl text-zinc-300 bg-[#1D2623]' 
+          value={totalBills} 
+          type="number" 
+          id='bills' 
+          placeholder='Aqui fica a quantidade de notas que você possui'
+          readOnly />
+        </div>
+
+        <div className='flex flex-col justify-center gap-3 p-10'>
+          <label className='text-xl text-zinc-300' htmlFor="coins">Número total de moedas:</label>
+          <input 
+          className='flex justify-center items-center p-3 border border-[#354942] rounded-xl text-zinc-300 bg-[#1D2623]' 
+          value={totalCoins} 
+          type="number" 
+          id='coins' 
+          placeholder='Aqui fica a quantidade de moedas que você possui'
+          readOnly />
+        </div>
       </div>
     </div>
   )
