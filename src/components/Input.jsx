@@ -1,4 +1,5 @@
-export default function Input({ billValue, billName, inputBill, calculateValue }) {
+import { Trash2 } from 'lucide-react'
+export default function Input({ setBills, billValue, billName, inputBill, calculateValue }) {
 
   function verifyInput(e) {
     const allowedKeys = ['Backspace', 'Delete', 'Tab', 'Ctrl', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown']
@@ -10,8 +11,15 @@ export default function Input({ billValue, billName, inputBill, calculateValue }
   
   function handleChange(e) { calculateValue(Number(e.target.value), billName) };
 
+  function handleClick() {
+    setBills(prevValues => ({
+      ...prevValues,
+      [billName]: ''
+    }))
+  }
+
   return (
-    <div className="flex justify-center items-center gap-3">
+    <div className="flex justify-center items-center gap-3 w-96">
       <label className="flex justify-center items-center text-xl text-zinc-300" htmlFor={inputBill}>R$ {inputBill.replace('.', ',')}</label>
         <input
           className="p-4 text-zinc-300 bg-[#1D2623] border border-[#354942] rounded-xl placeholder:text-zinc-600"
@@ -24,7 +32,9 @@ export default function Input({ billValue, billName, inputBill, calculateValue }
           maxLength={8}
           placeholder="Digite aqui as unidades"
         />
-        <br />
+      
+      <button type='button' onClick={handleClick}><Trash2 color="#ff0f0f" strokeWidth={1.5} /></button>
+      <br />
     </div>
   )
 }
