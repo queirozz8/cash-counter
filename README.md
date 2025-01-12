@@ -1,11 +1,31 @@
 <h1>Cash Counter</h1>
 <h2>English: A Website that calculates the amount of cash (in the number of bills and coins) you have.</h2>
-<h3>Was made using ReactJS with Vite, Tailwind CSS and HTML</h3>
+<h3>⚛ Was made using ReactJS with Vite, Tailwind CSS and HTML</h3>
+<h3>🚀 Features:</h3>
+
+###
+
+- Count bills and coins based at their quantities;
+- Button to clear a single input;
+- Button to clear all inputs;
+- Counter showing how many bills and coins you have;
+- Control using the arrows next to the input fields;
+- Support to both computers and mobile devices.
 
 ### 
 
 <h2>PT-BR: Um Website que calcula a quantidade de dinheiro em espécie (dinheiro vivo) que você tem (baseado no número de notas e moedas que possui).</h2>
-<h3>Foi feito usando ReactJS com Vite, Tailwind CSS e HTML</h3>
+<h3>⚛ Foi feito usando ReactJS com Vite, Tailwind CSS e HTML</h3>
+<h3>🚀 Funcionalidades:</h3>
+
+###
+
+- Contar notas e moedas baseado em suas quantidades;
+- Botão de apagar um input apenas;
+- Botão de apagar todos os inputs;
+- Contador de quantas notas e quantas moedas você possui;
+- Controle pelas setas ao lado do input;
+- Suporte a computadores e celulares.
 
 🔗 Site: https://cash-counter-rick.vercel.app
 ![image](https://github.com/user-attachments/assets/65fbc404-3893-40f3-a85e-5becbbd13831)
