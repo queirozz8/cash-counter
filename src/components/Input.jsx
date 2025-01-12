@@ -19,10 +19,10 @@ export default function Input({ setBills, billValue, billName, inputBill, calcul
   }
 
   return (
-    <div className="flex justify-center items-center lg:gap-3 lg:w-96">
+    <div className="flex justify-center items-center md:gap-3 md:w-96">
       <label className="flex justify-center items-center text-xl text-zinc-300" htmlFor={inputBill}>R$ {inputBill.replace('.', ',')}</label>
         <input
-          className="lg:p-4 text-zinc-300 bg-[#1D2623] border border-[#354942] rounded-xl placeholder:text-zinc-600"
+          className="md:p-4 text-zinc-300 bg-[#1D2623] border border-[#354942] rounded-xl placeholder:text-zinc-600"
           type="text"
           onKeyDown={verifyInput}
           onChange={handleChange}
