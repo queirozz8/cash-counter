@@ -3,7 +3,7 @@ export default function Input({ setBills, billValue, billName, inputBill, calcul
 
   function verifyInput(e) {
     const notAllowedKeys = ['e', 'E', '+', '-']
-    if ((e.target.length >= 8) || (notAllowedKeys.includes(e.key))) e.preventDefault()
+    if ((e.target.length >= 8) || (notAllowedKeys.includes(e.key)) || (isNaN(e.key))) e.preventDefault()
   };
   
   function handleChange(e) { 
