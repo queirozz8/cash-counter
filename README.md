@@ -22,7 +22,7 @@
 
 ###
 
-- Contar notas e moedas baseado em suas quantidades;
+- Contar notas e moedas baseado nas suas quantidades;
 - Botão de apagar um input apenas;
 - Botão de apagar todos os inputs;
 - Contador de quantas notas e quantas moedas você possui;
