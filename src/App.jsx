@@ -75,7 +75,7 @@ export default function App() {
       <p className='text-sm md:text-base text-zinc-300'>Selecione a quantidade de cada cédula/moeda que possui.</p>
       <br />
 
-      <form className='grid grid-cols-2 md:gap-24 md:w-[800px] md:h-[700px] md:mt-10'>
+      <form className='grid grid-cols-2 gap-16 md:gap-24 md:w-[800px] md:h-[700px] md:mt-10'>
         <Input setBills={setBills} billValue={bills.nota200} billName="nota200" inputBill="200.00" setResult={setResult} calculateValue={calculateValue} />
         <Input setBills={setBills} billValue={bills.nota100} billName="nota100" inputBill="100.00" setResult={setResult} calculateValue={calculateValue} />
         <Input setBills={setBills} billValue={bills.nota50} billName="nota50" inputBill="50.00" setResult={setResult} calculateValue={calculateValue} />
