@@ -70,9 +70,9 @@ export default function App() {
 
 
   return (
-    <div className='flex flex-col justify-center items-center lg:mt-14'>
-      <h1 className='flex justify-center items-center lg:gap-4 font-bold lg:text-4xl text-zinc-300'>Contador de Dinheiro Vivo <Coins size={48} color="#82ff4d" strokeWidth={0.8} /></h1>
-      <p className='text-zinc-300'>Selecione a quantidade de cada cédula/moeda que possui.</p>
+    <div className='flex flex-col justify-center items-center md:mt-14'>
+      <h1 className='flex justify-center items-center md:gap-4 font-bold md:text-2xl lg:text-4xl text-zinc-300'>Contador de Dinheiro Vivo <Coins size={48} color="#82ff4d" strokeWidth={0.8} /></h1>
+      <p className='text-sm md:text-base text-zinc-300'>Selecione a quantidade de cada cédula/moeda que possui.</p>
       <br />
 
       <form className='grid grid-cols-2 md:gap-24 md:w-[800px] md:h-[700px] md:mt-10'>
@@ -81,8 +81,8 @@ export default function App() {
         <Input setBills={setBills} billValue={bills.nota50} billName="nota50" inputBill="50.00" setResult={setResult} calculateValue={calculateValue} />
         <Input setBills={setBills} billValue={bills.nota20} billName="nota20" inputBill="20.00" setResult={setResult} calculateValue={calculateValue} />
         <Input setBills={setBills} billValue={bills.nota10} billName="nota10" inputBill="10.00" setResult={setResult} calculateValue={calculateValue} />
-        <Input setBills={setBills} billValue={bills.nota5} billName="nota5"  inputBill="5.00" setResult={setResult} calculateValue={calculateValue} />
-        <Input setBills={setBills} billValue={bills.nota2} billName="nota2"  inputBill="2.00" setResult={setResult} calculateValue={calculateValue} />
+        <Input setBills={setBills} billValue={bills.nota5} billName="nota5" inputBill="5.00" setResult={setResult} calculateValue={calculateValue} />
+        <Input setBills={setBills} billValue={bills.nota2} billName="nota2" inputBill="2.00" setResult={setResult} calculateValue={calculateValue} />
         <Input setBills={setBills} billValue={bills.moeda1} billName="moeda1" inputBill="1.00" setResult={setResult} calculateValue={calculateValue} />
         <Input setBills={setBills} billValue={bills.moeda50} billName="moeda50" inputBill="0.50" setResult={setResult} calculateValue={calculateValue} />
         <Input setBills={setBills} billValue={bills.moeda25} billName="moeda25" inputBill="0.25" setResult={setResult} calculateValue={calculateValue} />
@@ -90,32 +90,32 @@ export default function App() {
         <Input setBills={setBills} billValue={bills.moeda5} billName="moeda5" inputBill="0.05" setResult={setResult} calculateValue={calculateValue} />
       </form>
 
-      <div className='flex md:gap-10 md:mt-44 md:mb-10'>
-        <button className='md:p-4 text-zinc-300 bg-red-800 border border-red-600 rounded-xl' onClick={handleClear}>Limpar</button>
+      <div className='flex gap-7 md:gap-10 mt-36 md:mt-44 mb-6 md:mb-10'>
+        <button className='p-2 md:p-4 text-zinc-300 bg-red-800 border border-red-600 rounded-xl' onClick={handleClear}>Limpar</button>
         <p className='flex justify-center items-center relative md:left-8 text-zinc-300'>R$</p>
-        <input className='md:w-96 md:h-14 md:p-2 text-zinc-300 border border-[#354942] bg-[#1D2623] rounded-xl placeholder:text-zinc-600' value={result} placeholder='Resultado' readOnly id="input" />
+        <input className='md:w-96 md:h-14 md:p-3 text-zinc-300 border border-[#354942] bg-[#1D2623] rounded-xl placeholder:text-zinc-600' value={result} placeholder='Resultado' readOnly id="input" />
       </div>
 
       <div className='flex md:gap-52'>
         <div className='flex flex-col justify-center gap-3 p-10'>
           <label className='text-xl text-zinc-300' htmlFor="bills">Número total de notas:</label>
           <input 
-          className='flex justify-center items-center p-3 border border-[#354942] rounded-xl text-zinc-300 bg-[#1D2623]' 
+          className='flex justify-center items-center p-2 md:p-3 border border-[#354942] rounded-xl text-zinc-300 bg-[#1D2623]' 
           value={totalBills} 
           type="number" 
           id='bills' 
-          placeholder='Aqui fica a quantidade de notas que você possui'
+          placeholder='Quantidade de notas que você possui'
           readOnly />
         </div>
 
         <div className='flex flex-col justify-center gap-3 p-10'>
           <label className='text-xl text-zinc-300' htmlFor="coins">Número total de moedas:</label>
           <input 
-          className='flex justify-center items-center p-3 border border-[#354942] rounded-xl text-zinc-300 bg-[#1D2623]' 
+          className='flex justify-center items-center p-2 md:p-3 border border-[#354942] rounded-xl text-zinc-300 bg-[#1D2623]' 
           value={totalCoins} 
           type="number" 
           id='coins' 
-          placeholder='Aqui fica a quantidade de moedas que você possui'
+          placeholder='Quantidade de moedas que você possui'
           readOnly />
         </div>
       </div>
