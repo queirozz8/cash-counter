@@ -2,8 +2,7 @@ import { Trash2 } from 'lucide-react'
 export default function Input({ setBills, billValue, billName, inputBill, calculateValue }) {
 
   function verifyInput(e) {
-    const notAllowedKeys = ['e', 'E', '+', '-']
-    if ((e.target.length >= 8) || (notAllowedKeys.includes(e.key)) || (isNaN(e.key))) e.preventDefault()
+    if ((e.target.length >= 8) || (isNaN(e.key))) e.preventDefault()
   };
   
   function handleChange(e) { 
