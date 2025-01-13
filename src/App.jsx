@@ -70,7 +70,7 @@ export default function App() {
 
 
   return (
-    <div className='flex flex-col justify-center items-center md:mt-14'>
+    <div className='flex flex-col justify-center items-center md:mt-14 w-screen h-screen'>
       <h1 className='flex justify-center items-center md:gap-4 font-bold md:text-2xl lg:text-4xl text-zinc-300'>Contador de Dinheiro Vivo <Coins size={48} color="#82ff4d" strokeWidth={0.8} /></h1>
       <p className='text-sm md:text-base text-zinc-300'>Selecione a quantidade de cada cédula/moeda que possui.</p>
       <br />
