@@ -44,9 +44,9 @@ export default function App() {
 
     for (let bill in bills) {
       if (billValuesIndex < 12) {
-        cashCounter += Number(bills[bill]) * billValues[billValuesIndex]
-        if (bill.startsWith('nota')) totalBillsCounter += Number(bills[bill])
-        else if (bill.startsWith('moeda')) totalCoinsCounter += Number(bills[bill])
+        cashCounter += bills[bill] * billValues[billValuesIndex]
+        if (bill.startsWith('nota')) totalBillsCounter += bills[bill]
+        else if (bill.startsWith('moeda')) totalCoinsCounter += bills[bill]
         billValuesIndex++
       }
     }
