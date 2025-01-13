@@ -73,7 +73,7 @@ export default function App() {
     <div className='flex flex-col items-center md:mt-14 w-screen h-screen'>
       <div className='flex flex-col justify-center items-center relative md:static left-16'>
         <h1 className='flex justify-center items-center md:gap-4 font-bold md:text-2xl lg:text-4xl text-zinc-300'>Contador de Dinheiro Vivo <Coins size={48} color="#82ff4d" strokeWidth={0.8} /></h1>
-        <p className='text-sm md:text-base text-zinc-300'>Selecione a quantidade de cada cédula/moeda que possui.</p>
+        <p className='w-[420px] text-sm md:text-base text-zinc-300'>Selecione a quantidade de cada cédula/moeda que possui.</p>
       </div>
       <br />
 
