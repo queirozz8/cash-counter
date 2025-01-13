@@ -92,7 +92,7 @@ export default function App() {
         <Input setBills={setBills} billValue={bills.moeda5} billName="moeda5" inputBill="0.05" setResult={setResult} calculateValue={calculateValue} />
       </form>
 
-      <div className='flex gap-7 md:gap-10 relative md:static left-5 mt-36 md:mt-44 mb-6 md:mb-10'>
+      <div className='flex gap-7 md:gap-10 relative md:static left-10 mt-36 md:mt-44 mb-6 md:mb-10'>
         <button className='p-2 md:p-4 text-zinc-300 bg-red-800 border border-red-600 rounded-xl' onClick={handleClear}>Limpar</button>
         <p className='flex justify-center items-center relative md:left-8 text-zinc-300'>R$</p>
         <input className='md:w-96 md:h-14 p-2 md:p-3 text-zinc-300 border border-[#354942] bg-[#1D2623] rounded-xl placeholder:text-zinc-600' value={result} placeholder='Resultado' readOnly id="input" />
@@ -100,7 +100,7 @@ export default function App() {
 
       <div className='flex md:gap-52 relative left-20 md:static'>
         <div className='flex flex-col justify-center gap-3 p-10'>
-          <label className='text-xl text-zinc-300' htmlFor="bills">Número total de notas:</label>
+          <label className='md:text-xl text-zinc-300' htmlFor="bills">Número total de notas:</label>
           <input 
           className='flex justify-center items-center p-2 md:p-3 border border-[#354942] rounded-xl text-zinc-300 bg-[#1D2623]' 
           value={totalBills} 
@@ -111,7 +111,7 @@ export default function App() {
         </div>
 
         <div className='flex flex-col justify-center gap-3 p-10'>
-          <label className='text-xl text-zinc-300' htmlFor="coins">Número total de moedas:</label>
+          <label className='md:text-xl text-zinc-300' htmlFor="coins">Número total de moedas:</label>
           <input 
           className='flex justify-center items-center p-2 md:p-3 border border-[#354942] rounded-xl text-zinc-300 bg-[#1D2623]' 
           value={totalCoins} 
