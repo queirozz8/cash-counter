@@ -98,7 +98,7 @@ export default function App() {
         <input className='md:w-96 md:h-14 p-2 md:p-3 text-zinc-300 border border-[#354942] bg-[#1D2623] rounded-xl placeholder:text-zinc-600' value={result} placeholder='Resultado' readOnly id="input" />
       </div>
 
-      <div className='flex md:gap-52 relative left-20 md:static'>
+      <div className='flex md:gap-52 relative md:static left-24'>
         <div className='flex flex-col justify-center gap-3 p-10'>
           <label className='md:text-xl text-zinc-300' htmlFor="bills">Número total de notas:</label>
           <input 
