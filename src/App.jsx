@@ -70,9 +70,11 @@ export default function App() {
 
 
   return (
-    <div className='flex flex-col justify-center sm:justify-normal items-center md:mt-14 w-screen h-screen'>
-      <h1 className='flex justify-center items-center md:gap-4 font-bold md:text-2xl lg:text-4xl text-zinc-300'>Contador de Dinheiro Vivo <Coins size={48} color="#82ff4d" strokeWidth={0.8} /></h1>
-      <p className='text-sm md:text-base text-zinc-300'>Selecione a quantidade de cada cédula/moeda que possui.</p>
+    <div className='flex flex-col items-center md:mt-14 w-screen h-screen'>
+      <div className='flex flex-col justify-center items-center relative md:static left-16'>
+        <h1 className='flex justify-center items-center md:gap-4 font-bold md:text-2xl lg:text-4xl text-zinc-300'>Contador de Dinheiro Vivo <Coins size={48} color="#82ff4d" strokeWidth={0.8} /></h1>
+        <p className='text-sm md:text-base text-zinc-300'>Selecione a quantidade de cada cédula/moeda que possui.</p>
+      </div>
       <br />
 
       <form className='grid grid-cols-2 gap-32 md:gap-24 md:w-[800px] md:h-[700px] md:mt-10'>
@@ -93,10 +95,10 @@ export default function App() {
       <div className='flex gap-7 md:gap-10 mt-36 md:mt-44 mb-6 md:mb-10'>
         <button className='p-2 md:p-4 text-zinc-300 bg-red-800 border border-red-600 rounded-xl' onClick={handleClear}>Limpar</button>
         <p className='flex justify-center items-center relative md:left-8 text-zinc-300'>R$</p>
-        <input className='md:w-96 md:h-14 md:p-3 text-zinc-300 border border-[#354942] bg-[#1D2623] rounded-xl placeholder:text-zinc-600' value={result} placeholder='Resultado' readOnly id="input" />
+        <input className='md:w-96 md:h-14 p-2 md:p-3 text-zinc-300 border border-[#354942] bg-[#1D2623] rounded-xl placeholder:text-zinc-600' value={result} placeholder='Resultado' readOnly id="input" />
       </div>
 
-      <div className='flex md:gap-52'>
+      <div className='flex md:gap-52 relative left-20 md:static'>
         <div className='flex flex-col justify-center gap-3 p-10'>
           <label className='text-xl text-zinc-300' htmlFor="bills">Número total de notas:</label>
           <input 
