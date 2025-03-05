@@ -1,5 +1,10 @@
 <h1>Cash Counter</h1>
-<h2>English: A Website that calculates the amount of cash (in the number of bills and coins) you have.</h2>
+
+🔗 Site: https://cash-counter-rick.vercel.app
+![image](https://github.com/user-attachments/assets/65fbc404-3893-40f3-a85e-5becbbd13831)
+![image](https://github.com/user-attachments/assets/b5640c45-b40d-42ad-bf80-d7a47df60970)
+
+<h2>🇺🇸 English: A Website that calculates the amount of cash (in the number of bills and coins) you have.</h2>
 <h3>⚛ Was made using ReactJS with Vite, Tailwind CSS and HTML</h3>
 <h3>🚀 Features:</h3>
 
@@ -16,7 +21,7 @@
 
 ### 
 
-<h2>PT-BR: Um Website que calcula a quantidade de dinheiro em espécie (dinheiro vivo) que você tem (baseado no número de notas e moedas que possui).</h2>
+<h2>🇧🇷 PT-BR: Um Website que calcula a quantidade de dinheiro em espécie (dinheiro vivo) que você tem (baseado no número de notas e moedas que possui).</h2>
 <h3>⚛ Foi feito usando ReactJS com Vite, Tailwind CSS e HTML</h3>
 <h3>🚀 Funcionalidades:</h3>
 
@@ -31,12 +36,8 @@
 
 <h4>O objetivo é ajudar pessoas que possuem muitas quantidades de dinheiro vivo, que acabam se perdendo para contar todo aquele dinheiro.</h4>
 
-🔗 Site: https://cash-counter-rick.vercel.app
-![image](https://github.com/user-attachments/assets/65fbc404-3893-40f3-a85e-5becbbd13831)
-![image](https://github.com/user-attachments/assets/b5640c45-b40d-42ad-bf80-d7a47df60970)
 
-
-<h1>DOCUMENTATION FOR LOCAL INSTALLATION</h1>
+<h1>🇺🇸 DOCUMENTATION FOR LOCAL INSTALLATION</h1>
 
 1. First, do a git clone of this project:
 ```
@@ -67,7 +68,7 @@ http://localhost:3000
 
 
 
-<h1>DOCUMENTAÇÃO PARA INSTALAÇÃO LOCAL</h1>
+<h1>🇧🇷 DOCUMENTAÇÃO PARA INSTALAÇÃO LOCAL</h1>
 
 1. Primeiro, faça um git clone desse projeto:
 ```
@@ -77,7 +78,7 @@ git clone https://github.com/queirozz8/cash-counter.git
 ```
 cd cash-counter/
 ```
-3. Rode esse comando para instalar todas as dependências (React, Vite, Tailwind etc.):
+3. Rode esse comando para instalar todas as dependências (React, Vite, Tailwind, etc.):
 ```
 npm install
 ```
